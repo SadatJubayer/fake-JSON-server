@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fake JSON Server</title>
+</head>
+<body>
+
+    <div id="output">
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.js"></script>
+    <script>
+        let data = []
+        for (let index = 0; index < 10; index++) {
+            var obj = {};
+            obj.id = index+1;
+            obj.name = faker.name.findName();
+            obj.email = faker.internet.email();
+            data.push(obj);
+        }
+        let output = document.getElementById('output')
+
+        output.innerHTML = JSON.stringify(data);
+    </script>
+</body>
+</html>
